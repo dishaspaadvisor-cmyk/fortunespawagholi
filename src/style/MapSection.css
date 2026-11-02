@@ -1,0 +1,197 @@
+.map-section {
+  padding: 0 24px 120px;
+  background: #FFF8EC;
+  color: #3A2A1D;
+}
+
+.map-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================
+   Map Header
+========================= */
+
+.map-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.map-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #C77B18;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.map-header h2 {
+  margin: 0;
+  color: #2A1A0F;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(35px, 4vw, 55px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.map-header h2 em {
+  color: #C77B18;
+  font-style: italic;
+}
+
+/* =========================
+   Directions Button
+========================= */
+
+.map-directions-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  color: #3A2A1D;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(58, 42, 29, 0.35);
+  transition: all 0.3s ease;
+}
+
+.map-directions-button:hover {
+  color: #17120D;
+  background: #FFBD59;
+  border-color: #FFBD59;
+}
+
+/* =========================
+   Map Frame
+========================= */
+
+.map-frame-wrapper {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  background: #E8DCCB;
+}
+
+.map-frame-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 430px;
+  border: 0;
+
+  /* Premium muted map appearance */
+  filter: grayscale(0.8) contrast(0.95);
+}
+
+/* =========================
+   Location Card
+========================= */
+
+.map-location-card {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+
+  max-width: 370px;
+  padding: 18px 20px;
+
+  background: rgba(255, 248, 236, 0.97);
+
+  box-shadow: 0 12px 35px rgba(23, 18, 13, 0.14);
+}
+
+.map-location-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 38px;
+
+  width: 38px;
+  height: 38px;
+
+  color: #17120D;
+  background: #FFBD59;
+
+  border-radius: 50%;
+}
+
+.map-location-card strong {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #2A1A0F;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.map-location-card p {
+  margin: 0;
+  color: #6F5B47;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+  .map-section {
+    padding: 0 18px 70px;
+  }
+
+  .map-header {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .map-header h2 {
+    font-size: 40px;
+  }
+
+  .map-directions-button {
+    margin-top: 22px;
+  }
+
+  .map-frame-wrapper {
+    min-height: 400px;
+  }
+
+  .map-frame-wrapper iframe {
+    height: 400px;
+  }
+
+  .map-location-card {
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+
+    max-width: none;
+    padding: 14px;
+  }
+
+  .map-location-icon {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .map-location-card p {
+    font-size: 10px;
+  }
+}

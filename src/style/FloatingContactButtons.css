@@ -1,0 +1,373 @@
+/* =================================
+   FLOATING CONTACT BUTTONS
+================================= */
+
+.floating-contact-wrapper {
+  position: fixed;
+  right: 22px;
+  bottom: 24px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 13px;
+
+  font-family: inherit;
+}
+
+/* =================================
+   BUTTONS COLUMN
+================================= */
+
+.floating-contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floating-contact-actions:not(.is-open) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(15px);
+}
+
+/* =================================
+   MAIN FLOATING BUTTON
+================================= */
+
+.floating-contact-btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 158px;
+  min-height: 54px;
+
+  padding: 5px 17px 5px 6px;
+  gap: 11px;
+
+  color: #FFF8EC;
+
+  text-decoration: none;
+
+  border-radius: 40px;
+
+  box-shadow:
+    0 12px 30px rgba(23, 18, 13, 0.22),
+    0 4px 10px rgba(23, 18, 13, 0.12);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =================================
+   ICON CIRCLE
+================================= */
+
+.floating-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 43px;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 50%;
+
+  color: #FFF8EC;
+  background: rgba(255, 248, 236, 0.14);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+/* =================================
+   LABEL
+================================= */
+
+.floating-btn-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+}
+
+/* =================================
+   CALL BUTTON
+================================= */
+
+.floating-call-btn {
+  background: linear-gradient(
+    135deg,
+    #2A1A0F 0%,
+    #17120D 100%
+  );
+
+  border: 1px solid rgba(255, 189, 89, 0.45);
+}
+
+/* =================================
+   WHATSAPP BUTTON
+================================= */
+
+.floating-whatsapp-btn {
+  background: linear-gradient(
+    135deg,
+    #25D366 0%,
+    #128C52 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =================================
+   SHINE EFFECT
+================================= */
+
+.floating-contact-btn::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 80%
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.65s ease;
+}
+
+.floating-contact-btn:hover::before {
+  left: 130%;
+}
+
+/* =================================
+   HOVER
+================================= */
+
+.floating-contact-btn:hover {
+  transform: translateY(-4px) scale(1.025);
+
+  box-shadow:
+    0 17px 35px rgba(23, 18, 13, 0.28),
+    0 5px 12px rgba(23, 18, 13, 0.15);
+}
+
+.floating-contact-btn:hover .floating-btn-icon {
+  transform: rotate(-8deg) scale(1.08);
+  background: rgba(255, 248, 236, 0.25);
+}
+
+/* =================================
+   MAIN TOGGLE
+================================= */
+
+.floating-contact-toggle {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin-top: 2px;
+
+  color: #17120D;
+
+  background: linear-gradient(
+    135deg,
+    #FFBD59 0%,
+    #C77B18 100%
+  );
+
+  border: 3px solid rgba(255, 248, 236, 0.95);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 28px rgba(23, 18, 13, 0.22),
+    0 0 0 7px rgba(255, 189, 89, 0.15);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-contact-toggle:hover {
+  transform: rotate(8deg) scale(1.08);
+
+  box-shadow:
+    0 14px 32px rgba(23, 18, 13, 0.28),
+    0 0 0 9px rgba(255, 189, 89, 0.2);
+}
+
+/* =================================
+   ONLINE PULSE
+================================= */
+
+.floating-contact-toggle::after {
+  content: "";
+
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #25D366;
+
+  border: 2px solid #FFF8EC;
+  border-radius: 50%;
+
+  animation: floatingOnlinePulse 2s infinite;
+}
+
+@keyframes floatingOnlinePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* =================================
+   ENTRY ANIMATION
+================================= */
+
+.floating-contact-actions.is-open .floating-contact-btn {
+  animation:
+    floatingButtonReveal 0.5s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.floating-contact-actions.is-open .floating-call-btn {
+  animation-delay: 0.05s;
+}
+
+.floating-contact-actions.is-open .floating-whatsapp-btn {
+  animation-delay: 0.12s;
+}
+
+@keyframes floatingButtonReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+  .floating-contact-wrapper {
+    right: 15px;
+    bottom: 18px;
+    gap: 10px;
+  }
+
+  .floating-contact-actions {
+    gap: 9px;
+  }
+
+  .floating-contact-btn {
+    width: 145px;
+    min-height: 49px;
+
+    padding: 4px 14px 4px 5px;
+    gap: 9px;
+  }
+
+  .floating-btn-icon {
+    flex-basis: 39px;
+
+    width: 39px;
+    height: 39px;
+  }
+
+  .floating-btn-label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .floating-contact-toggle {
+    width: 49px;
+    height: 49px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 400px) {
+  .floating-contact-wrapper {
+    right: 12px;
+    bottom: 14px;
+  }
+
+  .floating-contact-btn {
+    width: 137px;
+    min-height: 46px;
+  }
+
+  .floating-btn-icon {
+    flex-basis: 36px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+  .floating-btn-label {
+    font-size: 10px;
+  }
+
+  .floating-contact-toggle {
+    width: 46px;
+    height: 46px;
+  }
+}

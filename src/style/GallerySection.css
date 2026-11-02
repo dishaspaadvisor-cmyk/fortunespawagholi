@@ -1,0 +1,457 @@
+/* =================================
+   GALLERY SECTION
+================================= */
+
+.gallery-section {
+  position: relative;
+  overflow: hidden;
+
+  background: #FFF8EC;
+  color: #3A2A1D;
+
+  padding: 130px 0 120px;
+}
+
+.gallery-container {
+  width: min(1440px, calc(100% - 100px));
+  margin: 0 auto;
+}
+
+.gallery-page {
+  min-height: 100svh;
+  background: transparent;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 70px;
+}
+
+.gallery-heading-content {
+  max-width: 600px;
+}
+
+.gallery-eyebrow {
+  margin: 0 0 22px;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: #C77B18;
+}
+
+.gallery-title {
+  margin: 0 0 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -2px;
+
+  color: #2A1A0F;
+}
+
+.gallery-subtitle {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.7;
+
+  color: #6F5B47;
+}
+
+.gallery-subtitle span {
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid #CDB99D;
+
+  color: #C77B18;
+}
+
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.gallery-navigation {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  padding-bottom: 8px;
+}
+
+.gallery-nav-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #3A2A1D;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.gallery-nav-btn:hover:not(:disabled) {
+  transform: translateX(4px);
+
+  color: #C77B18;
+}
+
+.gallery-prev:hover:not(:disabled) {
+  transform: translateX(-4px);
+
+  color: #C77B18;
+}
+
+.gallery-nav-btn:disabled {
+  opacity: 0.2;
+
+  cursor: not-allowed;
+}
+
+
+/* =================================
+   SLIDER
+================================= */
+
+.gallery-slider {
+  display: flex;
+
+  gap: 40px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  padding-bottom: 10px;
+}
+
+.gallery-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =================================
+   GALLERY ITEM
+================================= */
+
+.gallery-item {
+  flex: 0 0 calc((100% - 80px) / 3);
+
+  min-width: 0;
+}
+
+.gallery-image-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 465px;
+
+  background: #E8DCCB;
+}
+
+.gallery-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.06);
+
+  filter: saturate(0.9);
+}
+
+
+/* =================================
+   OVERLAY
+================================= */
+
+.gallery-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 18, 13, 0.12),
+    transparent 45%,
+    rgba(23, 18, 13, 0.38)
+  );
+
+  opacity: 0.75;
+
+  transition: opacity 0.5s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+
+/* =================================
+   INSTAGRAM ICON
+================================= */
+
+.gallery-instagram {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #FFBD59;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.gallery-item:hover .gallery-instagram {
+  transform: scale(1.15);
+
+  color: #FFF8EC;
+}
+
+
+/* =================================
+   USERNAME
+================================= */
+
+.gallery-username {
+  position: absolute;
+
+  bottom: 20px;
+  left: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+
+  color: #FFF8EC;
+
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+}
+
+.gallery-small-diamond {
+  font-size: 13px;
+
+  color: #FFBD59;
+}
+
+
+/* =================================
+   BOTTOM LINE
+================================= */
+
+.gallery-bottom-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 80px;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+
+  color: #B89462;
+}
+
+.gallery-bottom-line div {
+  flex: 1;
+
+  height: 1px;
+
+  background: #E1CEB2;
+}
+
+
+/* =================================
+   SCROLL REVEAL
+================================= */
+
+.reveal-gallery {
+  opacity: 0;
+
+  transform: translateY(65px);
+
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-visible .reveal-gallery {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 1200px) {
+
+  .gallery-container {
+    width: calc(100% - 70px);
+  }
+
+  .gallery-item {
+    flex: 0 0 calc((100% - 40px) / 2);
+  }
+
+  .gallery-image-wrapper {
+    height: 430px;
+  }
+}
+
+
+/* =================================
+   TABLET / MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+  .gallery-section {
+    padding: 90px 0 80px;
+  }
+
+  .gallery-container {
+    width: calc(100% - 40px);
+  }
+
+  .gallery-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+  }
+
+  .gallery-title {
+    font-size: 46px;
+
+    letter-spacing: -1px;
+  }
+
+  .gallery-navigation {
+    align-self: flex-end;
+  }
+
+  .gallery-item {
+    flex: 0 0 82%;
+  }
+
+  .gallery-image-wrapper {
+    height: 430px;
+  }
+
+  .gallery-slider {
+    gap: 20px;
+  }
+
+  .gallery-bottom-line {
+    margin-top: 60px;
+  }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+
+  .gallery-title {
+    font-size: 40px;
+  }
+
+  .gallery-subtitle {
+    font-size: 13px;
+  }
+
+  .gallery-item {
+    flex: 0 0 88%;
+  }
+
+  .gallery-image-wrapper {
+    height: 390px;
+  }
+
+  .gallery-bottom-line span:last-child {
+    display: none;
+  }
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal-gallery,
+  .gallery-image,
+  .gallery-nav-btn,
+  .gallery-instagram {
+    transition: none;
+  }
+
+  .gallery-slider {
+    scroll-behavior: auto;
+  }
+}

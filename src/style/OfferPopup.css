@@ -1,0 +1,255 @@
+
+/* Overlay */
+.offer-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 8, 5, 0.72);
+  backdrop-filter: blur(8px);
+  animation: offerOverlayFade 0.35s ease forwards;
+}
+
+/* Main Card */
+.offer-popup-card {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #fffaf5;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(217, 161, 46, 0.25);
+  animation: offerPopupScale 0.45s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+/* Close */
+.offer-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgba(22, 9, 7, 0.7);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.offer-popup-close:hover {
+  background: #d9a12e;
+  transform: rotate(90deg);
+}
+
+/* Image */
+.offer-popup-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.offer-popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.offer-popup-card:hover .offer-popup-image {
+  transform: scale(1.04);
+}
+
+.offer-popup-image-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 45px 22px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(22, 9, 7, 0.75),
+    transparent
+  );
+}
+
+.offer-popup-image-overlay span {
+  color: #f2c45a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Content */
+.offer-popup-content {
+  padding: 26px 28px 28px;
+  text-align: center;
+}
+
+.offer-popup-eyebrow {
+  margin: 0 0 10px;
+  color: #a97820;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.offer-popup-content h2 {
+  margin: 0;
+  color: #2a120d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.offer-popup-description {
+  max-width: 320px;
+  margin: 12px auto 18px;
+  color: #765f55;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Price */
+.offer-popup-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 8px 0 8px;
+}
+
+.offer-popup-price-label {
+  color: #8c7165;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.offer-popup-price strong {
+  color: #a97820;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.offer-popup-small-text {
+  margin: 10px 0 22px;
+  color: #9b867c;
+  font-size: 11px;
+}
+
+/* Buttons */
+.offer-popup-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.offer-popup-call,
+.offer-popup-whatsapp {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.offer-popup-call {
+  background: #2a120d;
+}
+
+.offer-popup-call:hover {
+  background: #4a2118;
+  transform: translateY(-2px);
+}
+
+.offer-popup-whatsapp {
+  background: #249b68;
+}
+
+.offer-popup-whatsapp:hover {
+  background: #1c7f55;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes offerOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes offerPopupScale {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .offer-popup-overlay {
+    padding: 16px;
+  }
+
+  .offer-popup-card {
+    max-width: 100%;
+    border-radius: 18px;
+  }
+
+  .offer-popup-image-wrapper {
+    height: 200px;
+  }
+
+  .offer-popup-content {
+    padding: 22px 20px 22px;
+  }
+
+  .offer-popup-content h2 {
+    font-size: 26px;
+  }
+
+  .offer-popup-price strong {
+    font-size: 34px;
+  }
+
+  .offer-popup-actions {
+    gap: 8px;
+  }
+
+  .offer-popup-call,
+  .offer-popup-whatsapp {
+    min-height: 46px;
+    font-size: 12px;
+  }
+}
+

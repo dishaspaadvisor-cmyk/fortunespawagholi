@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login/
+Disallow: /api/
+
+Sitemap: https://fortunespawagholi.best-spa.in//sitemap.xml

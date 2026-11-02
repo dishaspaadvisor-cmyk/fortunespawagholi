@@ -1,0 +1,333 @@
+.luxury-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #3A2A1D;
+  color: #FFF8EC;
+  background: #17120D;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.brand-logo {
+  display: inline-flex;
+  flex-direction: column;
+  color: #FFBD59;
+  text-decoration: none;
+}
+
+.brand-main {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #FFBD59;
+}
+
+.brand-subtitle {
+  margin-top: 4px;
+  color: #FFF8EC;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* =========================
+   HEADER ACTIONS
+========================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.reservation-link,
+.phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFF8EC;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.reservation-link:hover,
+.phone-link:hover {
+  color: #FFBD59;
+}
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-toggle,
+.slide-menu-top button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: #FFBD59;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-toggle:hover,
+.slide-menu-top button:hover {
+  color: #FFA51F;
+}
+
+/* =========================
+   FOCUS
+========================= */
+
+.menu-toggle:focus-visible,
+.slide-menu-top button:focus-visible,
+.menu-book-btn:focus-visible,
+.reservation-link:focus-visible,
+.phone-link:focus-visible,
+.brand-logo:focus-visible,
+.slide-nav-link:focus-visible {
+  outline: 2px solid #FFBD59;
+  outline-offset: 4px;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  background: rgba(23, 18, 13, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =========================
+   SLIDE MENU
+========================= */
+
+.slide-menu {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(420px, 88vw);
+  padding: 28px 32px;
+  box-sizing: border-box;
+
+  color: #3A2A1D;
+  background: #FFF8EC;
+
+  box-shadow: -12px 0 30px rgba(23, 18, 13, 0.18);
+
+  transform: translateX(100%);
+  transition: transform 260ms ease;
+}
+
+.slide-menu.open {
+  transform: translateX(0);
+}
+
+/* =========================
+   MENU TOP
+========================= */
+
+.slide-menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid #E8D5B8;
+
+  color: #3A2A1D;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+
+.slide-menu-top button {
+  color: #3A2A1D;
+}
+
+.slide-menu-top button:hover {
+  color: #C77B18;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.slide-navigation {
+  display: flex;
+  flex-direction: column;
+  padding-top: 28px;
+}
+
+.slide-nav-link {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 12px;
+
+  padding: 18px 0;
+
+  color: #3A2A1D;
+  border-bottom: 1px solid #E8D5B8;
+
+  text-decoration: none;
+
+  transform: translateX(20px);
+  opacity: 0;
+
+  transition:
+    color 180ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.slide-menu.open .slide-nav-link {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: calc(var(--item-index) * 45ms + 80ms);
+}
+
+/* Active + Hover */
+
+.slide-nav-link:hover,
+.slide-nav-link.current {
+  color: #C77B18;
+}
+
+.nav-number {
+  color: #B89462;
+  font-size: 12px;
+}
+
+.nav-name {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.nav-arrow {
+  color: #B89462;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.slide-nav-link:hover .nav-arrow {
+  color: #FFA51F;
+  transform: translate(3px, -3px);
+}
+
+/* =========================
+   MENU BOTTOM
+========================= */
+
+.slide-menu-bottom {
+  margin-top: auto;
+  padding-top: 32px;
+}
+
+.slide-menu-bottom p {
+  margin-bottom: 18px;
+
+  color: #7A6249;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.menu-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+
+  color: #17120D;
+  background: #FFBD59;
+
+  font-size: 13px;
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.menu-book-btn:hover {
+  color: #17120D;
+  background: #FFA51F;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .header-inner {
+    padding: 16px 20px;
+  }
+
+  .reservation-link span,
+  .phone-link {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .slide-menu {
+    padding: 24px 20px;
+  }
+
+  .nav-name {
+    font-size: 21px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-overlay,
+  .slide-menu,
+  .slide-nav-link,
+  .nav-arrow {
+    transition: none;
+  }
+}
